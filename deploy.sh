@@ -1,10 +1,10 @@
 #!/usr/bin/env sh
 
 # 发生错误时终止
-set -e
+# set -e
 
 # 构建
-npm run build
+yarn build --base=/click/
 
 # 进入构建文件夹
 cd dist
@@ -21,5 +21,6 @@ git commit -m 'deploy'
 
 # 如果你要部署在 https://<USERNAME>.github.io/<REPO>
 # git push -f git@github.com:<USERNAME>/<REPO>.git master:gh-pages
+git push -f git@github.com:enusune/click.git master:gh-pages
 
 cd -

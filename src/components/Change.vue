@@ -65,11 +65,7 @@ export default defineComponent({
               w: r.w,
               h: r.h / 2,
             };
-            rects.splice(found, 1);
-            rects.push(a);
-            rects.push(b);
-            this.rects = rects;
-          } else {
+          } else if (r.w > r.h) {
             a = { x: r.x, y: r.y, w: r.w / 2, h: r.h };
             b = {
               x: r.x + r.w / 2,
@@ -77,12 +73,30 @@ export default defineComponent({
               w: r.w / 2,
               h: r.h,
             };
-            rects.splice(found, 1);
-            rects.push(a);
-            rects.push(b);
-            this.rects = rects;
+          } else {
+            const is = Math.random() * 10 > 5;
+            if (is) {
+              a = { x: r.x, y: r.y, w: r.w / 2, h: r.h };
+              b = {
+                x: r.x + r.w / 2,
+                y: r.y,
+                w: r.w / 2,
+                h: r.h,
+              };
+            } else {
+              a = { x: r.x, y: r.y, w: r.w, h: r.h / 2 };
+              b = {
+                x: r.x,
+                y: r.y + r.h / 2,
+                w: r.w,
+                h: r.h / 2,
+              };
+            }
           }
-
+          rects.splice(found, 1);
+          rects.push(a);
+          rects.push(b);
+          this.rects = rects;
           sketch.fill(
             Math.random() * 255,
             Math.random() * 255,
