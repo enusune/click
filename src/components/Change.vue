@@ -53,7 +53,6 @@ export default defineComponent({
   methods: {
     preload(sketch: any) {},
     setup(sketch: any) {
-      // debugger;
       const width = window.innerWidth;
       const height = window.innerHeight;
       const final = Math.min(width, height);
@@ -68,7 +67,6 @@ export default defineComponent({
     },
     draw(sketch: any) {
       sketch.mouseClicked = () => {
-        // debugger;
         if (sketch.mouseButton == sketch.LEFT) {
           const rects = this.rects;
           const mouseX = sketch.mouseX;
@@ -153,10 +151,6 @@ export default defineComponent({
           sketch.rect(b.x, b.y, b.w, b.h);
         }
       };
-
-      function drawRect(x: any, y: any, w: any, h: any, sketch: any) {
-        sketch.rect(x, y, w, h);
-      }
     },
 
     keyPressed() {},
